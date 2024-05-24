@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #custom apps
-    'core'
+    'core',
     'user_auths'
 ]
 
@@ -139,11 +139,11 @@ JAZZMIN_SETTINGS = {
     "site_header":"amalshop",
     "site_brand": "ecom",
     "site_title": "Ecom Admin",
-    
+    "site_logo" : "assets/imgs/theme/loading.gif"    
     
     }
     
 
-
+AUTH_USER_MODEL = 'user_auths.Users'
     
                                 
