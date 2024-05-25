@@ -3,8 +3,9 @@ from .forms import UserRegisterForm
 from django.contrib.auth import login,authenticate,logout
 from django.contrib import messages
 from django.conf import settings
+from .models import Users
 
-User = settings.AUTH_USER_MODEL
+# User = settings.AUTH_USER_MODEL
 
 def register_view(request):
     if request.method == "POST":
@@ -36,21 +37,31 @@ def login_view(request):
     
     
     if request.method == "POST":
-        email = request.POST.get("emial")
+        email = request.POST.get("email")
         password = request.POST.get("password")
 
         try:
-            user = User.objects.get(email=email)
+            user = Users.objects.get(email=email)
+            user = authenticate(request, email=email,password=password)
+
+            if user is not None:
+                login(request,user)
+                messages.success(request,"You are logged in.")
+                return redirect("core:home")
+            else:
+                messages.warning(request,"User Does Not Exits, create an account")
+    
         except:
             messages.warning(request,f"User with {email} does not exits")
         
-        user = authenticate(request, email=email,password=password)
-
-        if user is not None:
-            login(request,user)
-            messages.success(request,"You are logged in.")
-            return redirect("core:home")
-        else:
-            messages.warning(request,"User Does Not Exits, create an account")
-    
+        
     return render(request,"userauths/login.html")
+
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request,"You logged out")
+    return render(request,'index.html')
+
+        
