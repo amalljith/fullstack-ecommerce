@@ -8870,7 +8870,7 @@ span.fi-rs-apps {
   padding: 30px;
   background: #fff;
   border: 1px solid #BCE3C9;
-  border-radius: 10px;
+  border-radius: 30px;
   font-size: 16px;
   min-width: 270px;
   -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -8890,7 +8890,7 @@ span.fi-rs-apps {
   margin: 0;
   padding: 14px 0 23px;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   -webkit-box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.07);
   box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.07);
   font-size: 16px;
