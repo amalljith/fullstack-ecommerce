@@ -97,7 +97,7 @@ class Product(models.Model):
 
     specification = models.TextField(null=True,blank=True, default="this is the product")
     type = models.CharField(max_length=100,default="organic",null=True,blank=True)
-    available = models.CharField(max_length=100,default="10",null=True,blank=True)
+    stoke = models.CharField(max_length=100,default="10",null=True,blank=True)
     life = models.CharField(max_length=100,default="100 Days",null=True,blank=True)
     mfd = models.DateField(auto_now_add=False,null=True,blank=True)
 
